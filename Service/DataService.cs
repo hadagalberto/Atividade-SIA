@@ -61,9 +61,14 @@ namespace sia.Service
             return lojasList;
         }
 
-        public List<List<DateTime>> GetAnos(List<DataEntityModel> lista)
+        public List<int> GetAnos(List<DataEntityModel> lista)
         {
-            var listaRetorno = new List<List<DateTime>>();
+            var listaRetorno = new List<int>();
+
+            foreach(var ano in lista.OrderBy(x => x.DataHora).Select(x => x.DataHora.Year))
+            {
+                listaRetorno.Add(ano);
+            }
 
             return listaRetorno;
         }
