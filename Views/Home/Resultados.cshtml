@@ -1,0 +1,155 @@
+@model ResultadosViewModel
+@{
+    ViewData["Title"] = "Resultados";
+    
+}
+
+@if(Model != null && Model.ListaLojas != null && Model.ListaLojas.Any())
+{
+    var XLabels = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.Nome ).ToList() );  
+    var YValues = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.VendasTotais ).ToList() );
+    var ZValues = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.ValorVendido ).ToList() );
+    var valorDeVenda = new List<double>();
+    foreach(var venda in Model.ListaLojas.OrderBy(x => x.Nome))
+    {
+        valorDeVenda.Add(venda.ValorVendido / venda.VendasTotais);
+    }
+    var TValues = Newtonsoft.Json.JsonConvert.SerializeObject(valorDeVenda);
+
+    <table id="tabela" class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Loja</th>
+                <th>Valor Vendido</th>
+                <th>Vendas Totais</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.ListaLojas)
+            {
+                <tr>
+                    <td>@item.Nome</td>
+                    <td>@item.ValorVendido</td>
+                    <td>@item.VendasTotais</td>
+                </tr>   
+            }
+        </tbody>
+    </table>
+
+    <div class="chart-container col-md-6">
+        <p>Vendas Totais</p>
+        <canvas id="chart-vendas" style="width:50%; height:500px"></canvas>
+    </div>
+
+    <div class="chart-container col-md-6">
+        <p>Vendas por Loja</p>
+        <canvas id="chart-lojas" style="width:50%; height:500px"></canvas>
+    </div>
+
+    <div class="chart-container col-md-6">
+        <p>Média de valor de venda</p>
+        <canvas id="chart-media" style="width:50%; height:500px"></canvas>
+    </div>
+
+    @section scripts{
+        <script>
+            // $(document).ready(function () {
+            //     $('#tabela').dataTable( {} );  
+            // });
+            jQuery(document).ready(function($){
+                $('#tabela').dataTable( {} );  
+
+                //Inicio chart
+
+                gerarGrafico("chart-vendas", @Html.Raw(XLabels), @Html.Raw(YValues));
+                gerarGrafico("chart-lojas", @Html.Raw(XLabels), @Html.Raw(ZValues));
+                gerarGrafico("chart-media", @Html.Raw(XLabels), @Html.Raw(TValues));
+
+                //Fim chart
+                });
+
+
+            function Shuffle(o) {
+	            for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	            return o;
+            };
+            
+            function gerarGrafico(container, labels, values){                
+                var ctx = document.getElementById(container).getContext('2d');  
+                var backColors = [  
+                    'rgba(255, 99, 132)',  
+                    'rgba(54, 162, 235)', 
+                    'rgba(255, 206, 86)',  
+                    'rgba(75, 192, 192)',  
+                    'rgba(153, 102, 255)',  
+                    'rgba(255, 159, 64)',  
+                    'rgba(255, 0, 0)',  
+                    'rgba(0, 255, 0)',  
+                    'rgba(0, 0, 255)',  
+                    'rgba(192, 192, 192)',  
+                    'rgba(255, 255, 0)',  
+                    'rgba(255, 0, 255)' 
+                ]
+                var data = {  
+                    labels: labels,  
+                    datasets: [{  
+                        label: "Gráfico",  
+                        backgroundColor: backColors,  
+                        borderColor: [  
+                            'rgba(255,99,132,1)',  
+                            'rgba(54, 162, 235, 1)',  
+                            'rgba(255, 206, 86, 1)',  
+                            'rgba(75, 192, 192, 1)',  
+                            'rgba(153, 102, 255, 1)',  
+                            'rgba(255, 159, 64, 1)',  
+                            'rgba(255, 0, 0)',  
+                            'rgba(0, 255, 0)',  
+                            'rgba(0, 0, 255)',  
+                            'rgba(192, 192, 192)',  
+                            'rgba(255, 255, 0)',  
+                            'rgba(255, 0, 255)'  
+                        ],  
+                        borderWidth: 1,  
+                        data: values  
+                    }]  
+                };
+                var options = {  
+                    maintainAspectRatio: true,  
+                    scales: {  
+                        yAxes: [{  
+                            ticks: {  
+                                min: 0,  
+                                beginAtZero: true  
+                            },  
+                            gridLines: {  
+                                display: false,  
+                                color: "rgba(255,99,164,0.2)"  
+                            }  
+                        }],  
+                        xAxes: [{  
+                            ticks: {  
+                                min: 0,  
+                                beginAtZero: true  
+                            },  
+                            gridLines: {  
+                                display: false  
+                            }  
+                        }]  
+                    }  
+                };  
+
+                var myChart = new  Chart(ctx, {  
+                    options: options,  
+                    data: data,  
+                    type:'doughnut'  
+                });
+            }
+
+        </script>
+    }
+}
+
+<form asp-action="Carregar" enctype="multipart/form-data" type="post">
+    <input type="file" name="files" class="form-control list-group-item" value="Anexo" multiple />
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
