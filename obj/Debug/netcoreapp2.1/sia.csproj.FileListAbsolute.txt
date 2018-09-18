@@ -31,3 +31,36 @@ C:\Users\Hadagalberto\Documents\C Sharp\sia\obj\Debug\netcoreapp2.1\sia.dll
 C:\Users\Hadagalberto\Documents\C Sharp\sia\obj\Debug\netcoreapp2.1\sia.pdb
 C:\Users\Hadagalberto\Documents\C Sharp\sia\obj\Debug\netcoreapp2.1\sia.csproj.CopyComplete
 C:\Users\Hadagalberto\Documents\C Sharp\sia\obj\Debug\netcoreapp2.1\Razor\Views\Home\Resultados.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.deps.json
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.runtimeconfig.json
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.runtimeconfig.dev.json
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.dll
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.pdb
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.Views.dll
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\bin\Debug\netcoreapp2.1\sia.Views.pdb
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.csprojAssemblyReference.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.csproj.CoreCompileInputs.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.RazorAssemblyInfo.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.RazorAssemblyInfo.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.AssemblyInfoInputs.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.AssemblyInfo.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.TagHelpers.input.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.TagHelpers.output.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.RazorCoreGenerate.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Home\Resultados.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.RazorTargetAssemblyInfo.cache
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.RazorTargetAssemblyInfo.cs
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.Views.pdb
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.dll
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.pdb
+C:\Users\hadagalberto.junior\Source\Repos\Atividade-SIA\obj\Debug\netcoreapp2.1\sia.csproj.CopyComplete

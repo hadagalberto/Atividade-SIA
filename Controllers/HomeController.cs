@@ -69,13 +69,13 @@ namespace sia.Controllers
             modelo.ListaLojas = retornoTorta;
 
             // Gerar graficos de barra
-            var anos = dataService.GetAnos(lista);
+            var anos = dataService.GetDias(lista);
             var retornoBar = new ResultadoAnualEntityModel();
             retornoBar.Anos = anos;
             foreach(var ano in anos)
             {
-                retornoBar.ValoresAnuais.Add(dataService.GetValoresPorAno(ano, lista));
-                retornoBar.VendasAnuais.Add(dataService.GetVendasPorAno(ano, lista));
+                retornoBar.ValoresAnuais.Add(dataService.GetValoresPorDia(ano, lista));
+                retornoBar.VendasAnuais.Add(dataService.GetVendasPorDia(ano, lista));
             }
             modelo.ResultadoAnual = retornoBar;
 

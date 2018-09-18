@@ -61,7 +61,7 @@ namespace sia.Service
             return lojasList;
         }
 
-        public List<int> GetAnos(List<DataEntityModel> lista)
+        public List<int> GetDias(List<DataEntityModel> lista)
         {
             var listaRetorno = new List<int>();
 
@@ -75,7 +75,7 @@ namespace sia.Service
             return listaRetorno;
         }
 
-        public int GetValoresPorAno(int ano, List<DataEntityModel> lista)
+        public int GetValoresPorDia(int ano, List<DataEntityModel> lista)
         {
             var retorno = 0;
 
@@ -87,9 +87,14 @@ namespace sia.Service
             return retorno;
         }
 
-        public int GetVendasPorAno(int ano, List<DataEntityModel> lista)
+        public int GetVendasPorDia(int ano, List<DataEntityModel> lista)
         {
             return lista.OrderBy(x => x.DataHora).Where(x => x.DataHora.Day == ano).Count();
+        }
+
+        public List<string> GetTipos(List<DataEntityModel> lista)
+        {
+            return lista.OrderBy(x => x.DataHora).Select(x => x.Tipo).Distinct().ToList();
         }
     }
 

@@ -11501,23 +11501,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hadagalberto\\.nuget\\packages\\": {},
+    "C:\\Users\\hadagalberto.junior\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hadagalberto\\Documents\\C Sharp\\sia\\sia.csproj",
+      "projectUniqueName": "C:\\Users\\hadagalberto.junior\\Source\\Repos\\Atividade-SIA\\sia.csproj",
       "projectName": "sia",
-      "projectPath": "C:\\Users\\Hadagalberto\\Documents\\C Sharp\\sia\\sia.csproj",
-      "packagesPath": "C:\\Users\\Hadagalberto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hadagalberto\\Documents\\C Sharp\\sia\\obj\\",
+      "projectPath": "C:\\Users\\hadagalberto.junior\\Source\\Repos\\Atividade-SIA\\sia.csproj",
+      "packagesPath": "C:\\Users\\hadagalberto.junior\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hadagalberto.junior\\Source\\Repos\\Atividade-SIA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hadagalberto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hadagalberto.junior\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
