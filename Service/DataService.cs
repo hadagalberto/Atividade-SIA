@@ -65,12 +65,31 @@ namespace sia.Service
         {
             var listaRetorno = new List<int>();
 
-            foreach(var ano in lista.OrderBy(x => x.DataHora).Select(x => x.DataHora.Year))
+            var anos = lista.OrderBy(x => x.DataHora).Select(x => x.DataHora.Day).Distinct().ToList();
+
+            foreach (var ano in anos)
             {
                 listaRetorno.Add(ano);
             }
 
             return listaRetorno;
+        }
+
+        public int GetValoresPorAno(int ano, List<DataEntityModel> lista)
+        {
+            var retorno = 0;
+
+            foreach(var valor in lista.OrderBy(x => x.DataHora).Where(x => x.DataHora.Day == ano).Select(x => x.Valor))
+            {
+                retorno += valor;
+            }
+
+            return retorno;
+        }
+
+        public int GetVendasPorAno(int ano, List<DataEntityModel> lista)
+        {
+            return lista.OrderBy(x => x.DataHora).Where(x => x.DataHora.Day == ano).Count();
         }
     }
 

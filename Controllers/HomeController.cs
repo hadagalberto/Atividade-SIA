@@ -56,16 +56,28 @@ namespace sia.Controllers
         [HttpPost]
         public IActionResult Carregar(){
             
-            if(!Request.Form.Files.Any()){
-                //return Resultados(new List<DataEntityModel>());    
+            if(!Request.Form.Files.Any())
+            {
                 return RedirectToAction("Resultados");
             }
             var dataService = new DataService();
-
             var lista = dataService.ProcessarDados(Request.Form.Files[0]);
-            var retorno = dataService.GetLojas(lista);
+
+            // Gerar graficos de torta
+            var retornoTorta = dataService.GetLojas(lista);
             var modelo = new ResultadosViewModel();
-            modelo.ListaLojas = retorno;
+            modelo.ListaLojas = retornoTorta;
+
+            // Gerar graficos de barra
+            var anos = dataService.GetAnos(lista);
+            var retornoBar = new ResultadoAnualEntityModel();
+            retornoBar.Anos = anos;
+            foreach(var ano in anos)
+            {
+                retornoBar.ValoresAnuais.Add(dataService.GetValoresPorAno(ano, lista));
+                retornoBar.VendasAnuais.Add(dataService.GetVendasPorAno(ano, lista));
+            }
+            modelo.ResultadoAnual = retornoBar;
 
             return View("Resultados", modelo);
         }

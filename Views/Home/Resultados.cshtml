@@ -6,6 +6,7 @@
 
 @if(Model != null && Model.ListaLojas != null && Model.ListaLojas.Any())
 {
+    // Dados de graficos de torta
     var XLabels = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.Nome ).ToList() );  
     var YValues = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.VendasTotais ).ToList() );
     var ZValues = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ListaLojas.OrderBy(x => x.Nome).Select( x => x.ValorVendido ).ToList() );
@@ -15,6 +16,11 @@
         valorDeVenda.Add(venda.ValorVendido / venda.VendasTotais);
     }
     var TValues = Newtonsoft.Json.JsonConvert.SerializeObject(valorDeVenda);
+
+    // Dados de graficos de barra
+    var Anos = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ResultadoAnual.Anos );
+    var VendasAnuais = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ResultadoAnual.VendasAnuais );
+    var ValoresAnuais = Newtonsoft.Json.JsonConvert.SerializeObject( Model.ResultadoAnual.ValoresAnuais );
 
     <table id="tabela" class="table table-responsive">
         <thead>
@@ -36,21 +42,31 @@
         </tbody>
     </table>
 
-    <div class="chart-container col-md-6">
+    <div class="chart-container col-md-4">
         <p>Vendas Totais</p>
-        <canvas id="chart-vendas" style="width:50%; height:500px"></canvas>
+        <canvas id="chart-vendas" style="width:100%; height:500px"></canvas>
     </div>
 
-    <div class="chart-container col-md-6">
+    <div class="chart-container col-md-4">
         <p>Vendas por Loja</p>
-        <canvas id="chart-lojas" style="width:50%; height:500px"></canvas>
+        <canvas id="chart-lojas" style="width:100%; height:500px"></canvas>
+    </div>
+
+    <div class="chart-container col-md-4">
+        <p>Média de valor de venda</p>
+        <canvas id="chart-media" style="width:100%; height:500px"></canvas>
     </div>
 
     <div class="chart-container col-md-6">
-        <p>Média de valor de venda</p>
-        <canvas id="chart-media" style="width:50%; height:500px"></canvas>
+        <p>Vendas Anuais</p>
+        <canvas id="chart-vendas-anuais" style="width:100%; height:500px"></canvas>
     </div>
 
+    <div class="chart-container col-md-6">
+        <p>Valores Anuais</p>
+        <canvas id="chart-valores-anuais" style="width:100%; height:500px"></canvas>
+    </div>
+    
     @section scripts{
         <script>
             // $(document).ready(function () {
@@ -61,9 +77,11 @@
 
                 //Inicio chart
 
-                gerarGrafico("chart-vendas", @Html.Raw(XLabels), @Html.Raw(YValues));
-                gerarGrafico("chart-lojas", @Html.Raw(XLabels), @Html.Raw(ZValues));
-                gerarGrafico("chart-media", @Html.Raw(XLabels), @Html.Raw(TValues));
+                gerarGrafico("chart-vendas", @Html.Raw(XLabels), @Html.Raw(YValues), "doughnut");
+                gerarGrafico("chart-lojas", @Html.Raw(XLabels), @Html.Raw(ZValues), "doughnut");
+                gerarGrafico("chart-media", @Html.Raw(XLabels), @Html.Raw(TValues), "doughnut");
+                gerarGrafico("chart-valores-anuais", @Html.Raw(Anos), @Html.Raw(ValoresAnuais), "bar");
+                gerarGrafico("chart-vendas-anuais", @Html.Raw(Anos), @Html.Raw(VendasAnuais), "bar");
 
                 //Fim chart
                 });
@@ -74,7 +92,7 @@
 	            return o;
             };
             
-            function gerarGrafico(container, labels, values){                
+            function gerarGrafico(container, labels, values, tipo){                
                 var ctx = document.getElementById(container).getContext('2d');  
                 var backColors = [  
                     'rgba(255, 99, 132)',  
@@ -141,7 +159,7 @@
                 var myChart = new  Chart(ctx, {  
                     options: options,  
                     data: data,  
-                    type:'doughnut'  
+                    type: tipo  
                 });
             }
 

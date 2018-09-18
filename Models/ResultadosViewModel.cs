@@ -8,5 +8,7 @@ namespace sia.Models
         
         public List<LojaEntityModel> ListaLojas { get; set; }
 
+        public ResultadoAnualEntityModel ResultadoAnual { get; set; }
+
     }
 }
